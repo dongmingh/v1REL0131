@@ -1,7 +1,7 @@
 {
-    "ordererAddress": "10.120.223.35",
+    "ordererAddress": "0.0.0.0",
     "ordererPort": "7050",
-    "vp0Address": "10.120.223.35",
+    "vp0Address": "0.0.0.0",
     "vp0Port": "7051",
     "version": "2",
     "services": {
@@ -51,7 +51,7 @@
                  "CORE_PEER_ID": "vp",
                  "CORE_PEER_ADDRESSAUTODETECT": "false",
                  "CORE_NEXT": "true",
-                 "CORE_PEER_ADDRESS": "10.120.223.35:PORTID",
+                 "CORE_PEER_ADDRESS": "0.0.0.0:PORTID",
                  "CORE_PEER_NETWORKID": "${CORE_PEER_NETWORKID}",
                  "CORE_PEER_COMMITTER_ENABLED": "true",
                  "CORE_PEER_COMMITTER_LEDGER_ORDERER": "orderer:7050",

@@ -1,4 +1,4 @@
-The utility can either create a network for v1 release 01/31.
+The utility creates a network for v1 release 01/31.
 
 
 #Code Base
@@ -20,7 +20,7 @@ The utility can either create a network for v1 release 01/31.
 
 ##Examples
 
-####example 1: create one orderer (solo), and 1 peers
+####example 1: create a network with 1 orderer (solo), and 1 peers
 
     ./driver_opt.sh create 2
 
