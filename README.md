@@ -1,15 +1,10 @@
 ##The utility creates a network based on the input option for v1 release 01/31/2017.
 
-There three network options:
+There are three network options for this release:
 
 - option 1: a network with 1 orderer (solo) and 1 peer
 - option 2: a network with 1 orderer(kafka) and 1 peer
 - option 3: a network with 1 cop, 1 orderer(kafka) and 1 peer
-
-|  option | cop  | orderer   | peer ||
-|   1     |      |  1 (solo) | 1    |
-|   2     |      |  1 (kafka)| 1    |
-|   3     |  1   |  1 (kafka)| 1    ||
 
 
 #Usage
