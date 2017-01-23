@@ -1,9 +1,9 @@
 #!/bin/bash
 
 #OS
-
 OSName=`uname`
 echo "Operating System: $OSName"
+
 #sanity check input args
 Req=$1
 if [ $Req != "create" ]; then
@@ -28,11 +28,11 @@ case $nOpt in
      ;;
 
    2)
-     echo "Create network option 1: 1 orderer (solo), 1 peer"
+     echo "Create network option 2: 1 orderer (kafka), 1 peer"
      nBroker=1
      ;;
    3)
-     echo "Create network option 1: 1 orderer (solo), 1 peer"
+     echo "Create network option 3: 1 cop, 1 orderer (kafka), 1 peer"
      nBroker=1
      ;;
 
