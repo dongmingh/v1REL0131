@@ -68,6 +68,7 @@ N=1
 node json2yml.js $jsonFILE $N $nBroker
 
 # create network
-       docker-compose -f docker-compose.yml up -d --force-recreate $VPN 
+       docker-compose -f docker-compose.yml up -d --force-recreate cli
+       ##docker-compose -f docker-compose.yml up -d --force-recreate $VPN
 
 exit
