@@ -9,9 +9,9 @@ console.log('network cfg: ', cfgFile);
 console.log('docker composer: ', dFile);
 
 var addVP = parseInt(process.argv[3]);
-console.log('add vp: ', addVP);
+console.log('add peer: ', addVP);
 
-var VPName = 'vp' + addVP;
+var VPName = 'peer' + addVP;
 
 var addOrderer = 1;
 console.log('add Orderer: ', addOrderer);
@@ -57,10 +57,10 @@ for ( i0=0; i0<top_key.length; i0++ ) {
          console.log('couchdb Port:', couchdbPort);
     } else if ( top_key[i0] == 'vp0Address' ) {
          vp0Addr = lvl0_obj; 
-         console.log('vp0 address:', vp0Addr);
+         console.log('peer0 address:', vp0Addr);
     } else if ( top_key[i0] == 'vp0Port' ) {
          vp0Port = parseInt(lvl0_obj); 
-         console.log('vp0 Port:', vp0Port);
+         console.log('peer0 Port:', vp0Port);
     } else if ( top_key[i0] == 'version' ) {
          buff = top_key[i0] + ":" + " '" + lvl0_obj + "'" + "\n";
          fs.appendFileSync(dFile, buff);
@@ -142,7 +142,7 @@ for ( i0=0; i0<top_key.length; i0++ ) {
                             }
                             // header 4
                             for ( m=0; m< v; m++ ) {
-                                buff = '  ' + '    - ' +'vp'+m + '\n';
+                                buff = '  ' + '    - ' +'peer'+m + '\n';
                                 fs.appendFileSync(dFile, buff);
                             }
 
@@ -288,7 +288,7 @@ for ( i0=0; i0<top_key.length; i0++ ) {
                     fs.appendFileSync(dFile, buff);
 
                 }
-             } else if (lvl1_key[i] == 'vp' ) {
+             } else if (lvl1_key[i] == 'peer' ) {
                 for ( v = 0; v < addVP; v++ ) {
                     tmp_name = lvl1_key[i] + v;
                     tmp_port = vp0Port + v;
@@ -307,6 +307,9 @@ for ( i0=0; i0<top_key.length; i0++ ) {
                                 // header 4
                                 for ( m=0; m< lvl3_key.length; m++ ) {
                                     if ( lvl3_key[m] == 'CORE_PEER_ID' ) {
+                                        buff = '  ' + '    - ' + lvl3_key[m] + '=' + tmp_name + '\n';
+                                        fs.appendFileSync(dFile, buff);
+                                    } else if ( lvl3_key[m] == 'CORE_PEER_NETWORKID' ) {
                                         buff = '  ' + '    - ' + lvl3_key[m] + '=' + tmp_name + '\n';
                                         fs.appendFileSync(dFile, buff);
                                     } else if ( lvl3_key[m] == 'CORE_PEER_COMMITTER_LEDGER_ORDERER' ) {
@@ -364,7 +367,7 @@ for ( i0=0; i0<top_key.length; i0++ ) {
                             }
                             // header 4
                             for ( m=0; m< v; m++ ) {
-                                buff = '  ' + '    - ' +'vp'+m + '\n';
+                                buff = '  ' + '    - ' +'peer'+m + '\n';
                                 fs.appendFileSync(dFile, buff);
                             }
 
@@ -437,7 +440,7 @@ for ( i0=0; i0<top_key.length; i0++ ) {
                         // header 4
                             buff = '  ' + '    - ' +'orderer0:orderer0' + '\n';
                             fs.appendFileSync(dFile, buff);
-                            buff = '  ' + '    - ' +'vp0:vp0' + '\n';
+                            buff = '  ' + '    - ' +'peer0:peer0' + '\n';
                             fs.appendFileSync(dFile, buff);
 
                     } else if ( lvl2_key[k] == 'depends_on' ) {
@@ -450,7 +453,7 @@ for ( i0=0; i0<top_key.length; i0++ ) {
                         // header 4
                             buff = '  ' + '    - ' +'orderer0' + '\n';
                             fs.appendFileSync(dFile, buff);
-                            buff = '  ' + '    - ' +'vp0' + '\n';
+                            buff = '  ' + '    - ' +'peer0' + '\n';
                             fs.appendFileSync(dFile, buff);
 
                     } else if ( ( lvl2_key[k] == 'ports' ) || ( lvl2_key[k] == 'volumes' )  ){
